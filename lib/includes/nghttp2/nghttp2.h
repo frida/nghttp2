@@ -51,6 +51,10 @@ extern "C" {
 #endif /* !defined(_MSC_VER) || (_MSC_VER >= 1800) */
 #include <sys/types.h>
 #include <stdarg.h>
+#if defined(_MSC_VER) && !defined(ssize_t)
+#include <stddef.h>
+#define ssize_t ptrdiff_t
+#endif
 
 #include <nghttp2/nghttp2ver.h>
 
