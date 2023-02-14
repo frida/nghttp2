@@ -6,7 +6,7 @@ lt_age = 24
 
 version = meson.project_version()
 version_num = run_command(
-  'python3', '-c', f'''
+  import('python').find_installation('python3'), '-c', f'''
 major, minor, patch = [int(digit) for digit in '@version@'.split('.')]
 print("0x{:02x}{:02x}{:02x}".format(major, minor, patch))''',
   check: true,
